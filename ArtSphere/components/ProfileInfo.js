@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import EditProfile from "./EditProfile";
 
-const ProfileInfo = () => {
+const ProfileInfo = ({onPress}) => {
   return (
     <View style={styles.container}>
       <View style={styles.leftSection}>
@@ -11,7 +12,7 @@ const ProfileInfo = () => {
         <Text style={styles.name}>First Last</Text>
         <Text style={styles.role}>Research Volunteer</Text>
         <Text style={styles.additionalInfo}>Additional Line</Text>
-        <TouchableOpacity style={styles.editButton}>
+        <TouchableOpacity style={styles.editButton} onPress={onPress}>
           <Text style={styles.editButtonText}>Edit Profile</Text>
         </TouchableOpacity>
       </View>
@@ -54,13 +55,13 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   editButton: {
-    backgroundColor: 'transparent',
+    backgroundColor: "transparent",
     borderColor: "#106256",
     borderRadius: 20,
     borderWidth: 2,
     paddingVertical: 8,
     paddingHorizontal: 12,
-    alignSelf: 'flex-start'
+    alignSelf: "flex-start",
   },
   editButtonText: {
     color: "#106256",
