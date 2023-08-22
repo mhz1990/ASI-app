@@ -5,6 +5,7 @@ import {
   Image,
   TextInput,
   StyleSheet,
+  Dimensions,
   TouchableOpacity,
 } from "react-native";
 import { useState } from "react";
@@ -32,8 +33,8 @@ const EditProfile = ({ closeModal }) => {
       <View style={styles.modalContent}>
         <View style={styles.header}>
           <View style={styles.cancelContainer}>
-            <TouchableOpacity onPress={closeModal} style={styles.cancelText}>
-              <Text>Cancel</Text>
+            <TouchableOpacity onPress={closeModal} style={styles.cancelButton}>
+              <Text style={styles.cancelText}>Cancel</Text>
             </TouchableOpacity>
           </View>
 
@@ -57,7 +58,7 @@ const EditProfile = ({ closeModal }) => {
           </TouchableOpacity>
         </View>
 
-        <View style={styles.form}>
+        <View>
           <Text style={styles.label}>First Name</Text>
           <TextInput
             style={styles.input}
@@ -93,19 +94,16 @@ const EditProfile = ({ closeModal }) => {
             value={password}
             onChangeText={setPassword}
           />
-          <TouchableOpacity
-            style={styles.editButton}
-            onPress={() =>
-              handleSubmit({ firstname, lastname, school, email, avatar })
-            }
-          >
-            <Text style={styles.editButtonText}>Submit</Text>
-          </TouchableOpacity>
         </View>
       </View>
     </View>
   );
 };
+
+const baseSize = 16;
+const em = (multiplier) => baseSize * multiplier;
+const screenWidth = Dimensions.get('window').width;
+const inputWidth = screenWidth < 350 ? 300 : screenWidth * 0.8;
 
 const styles = StyleSheet.create({
   modalContainer: {
@@ -131,18 +129,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingTop: 10,
   },
+  cancelButton: {
+    paddingVertical: em(0.5),
+    paddingHorizontal: em(1),
+    alignSelf: "center",
+  },
   cancelContainer: {
-    flex: 1,
-    alignItems: "flex-start", 
+    alignItems: "flex-start",
   },
   saveContainer: {
-    flex: 1,
-    alignItems: "flex-end", 
+    alignItems: "flex-end",
   },
   cancelText: {
-    fontSize: 18,
-    color: "#106256",
-    fontWeight: "bold",
+    fontSize: 16,
   },
   titleText: {
     fontSize: 16,
@@ -157,8 +156,8 @@ const styles = StyleSheet.create({
     borderColor: "#ca619e",
     borderRadius: 20,
     borderWidth: 1,
-    paddingVertical: 6,
-    paddingHorizontal: 13,
+    paddingVertical: em(0.5),
+    paddingHorizontal: em(1),
     alignSelf: "center",
   },
   saveButtonText: {
@@ -180,9 +179,8 @@ const styles = StyleSheet.create({
     borderColor: "#106256",
     borderRadius: 20,
     borderWidth: 2,
-    paddingVertical: 8,
-    paddingHorizontal: 100,
-    width: 380,
+    paddingVertical: em(0.5),
+    width: inputWidth,
     alignSelf: "center",
     marginTop: 20,
   },
@@ -199,8 +197,9 @@ const styles = StyleSheet.create({
     borderColor: "#106256",
     borderRadius: 10,
     borderWidth: 2,
-    padding: 15,
-    paddingHorizontal: 10,
+    paddingVertical: em(1),
+    paddingHorizontal: em(0.5),
+    width: inputWidth,
     textAlign: "left",
   },
 });
