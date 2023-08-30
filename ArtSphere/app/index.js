@@ -1,11 +1,9 @@
 
 import React, { useState } from 'react';
 
-import {
-  StyleSheet, Image, View
+import {StyleSheet, Image, View
 } from 'react-native';
 import IntroSlider from '../components/IntroSlider';
-import { useRouter } from 'expo-router';
 
 const App = () => {
   const [showRealApp, setShowRealApp] = useState(false);

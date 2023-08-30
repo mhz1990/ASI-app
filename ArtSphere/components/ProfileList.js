@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import {Link, useRouter } from "expo-router";
-import NotificationSettings from "./notification-settings";
 
 
 export default function ProfileList({}){
@@ -24,7 +23,7 @@ export default function ProfileList({}){
     const handleItemPress = () => {
       if (item.title === "Notifications"){
         console.log("Notifications selected!");
-        router.push("/home/profile/notification-settings");
+        router.push("/home/profile/Notifications");
       }
     }
 
