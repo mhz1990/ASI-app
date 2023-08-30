@@ -1,8 +1,11 @@
 import React from "react";
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
+import {Link, useRouter } from "expo-router";
+import NotificationSettings from "./notification-settings";
 
-export default function ProfileList(){
+
+export default function ProfileList({}){
   const data = [
     { id: "1", title: "Edit Profile" },
     { id: "2", title: "Share" },
@@ -14,10 +17,20 @@ export default function ProfileList(){
     // Add more options here
   ];
 
+  const router = useRouter();
+
   const renderItem = ({ item }) => {
+    
+    const handleItemPress = () => {
+      if (item.title === "Notifications"){
+        console.log("Notifications selected!");
+        router.push("/home/profile/notification-settings");
+      }
+    }
+
     return (
-      <TouchableOpacity style={styles.itemContainer}>
-        <Text style={styles.itemText}>{item.title}</Text>
+      <TouchableOpacity style={styles.itemContainer} onPress={handleItemPress}>
+        <Text style={styles.itemText}>{item.title} </Text>
         <AntDesign name="right" size={24} color="black" />
       </TouchableOpacity>
     );
