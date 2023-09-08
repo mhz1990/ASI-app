@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, Switch, StyleSheet } from 'react-native';
-import {AntDesign} from '@expo/vector-icons';
 
 const Notifications = () => {
     const [isNotificationsEnabled, setNotificationsEnabled] = useState(true);
-    const [isSoundEnabled, setSoundEnabled] = useState(true);
-    const [isVibrationEnabled, setVibrationEnabled] = useState(true);
+    const [isDailyReminder, setDailyReminder] = useState(true);
+    const [isWeeklyReminder, setWeeklyReminder] = useState(true);
+    const [isProjectCompleted, setProjectCompleted] = useState(true);
+    const [isProjectPublished, setProjectPublished] = useState(true);
 
     return (
         <View style={styles.container}>
@@ -22,32 +23,32 @@ const Notifications = () => {
                 <Text>Daily reminder</Text>
                 <Text style={styles.itemText}></Text>
                 <Switch 
-                    value={isSoundEnabled}
-                    onValueChange={(value) => setSoundEnabled(value)}
+                    value={isDailyReminder}
+                    onValueChange={(value) => setDailyReminder(value)}
                 />
             </View>
 
             <View style={styles.settingRow}>
                 <Text>Weekly reminder</Text>
                 <Switch 
-                    value={isVibrationEnabled}
-                    onValueChange={(value) => setVibrationEnabled(value)}
+                    value={isWeeklyReminder}
+                    onValueChange={(value) => setWeeklyReminder(value)}
                 />
             </View>
 
             <View style={styles.settingRow}>
                 <Text>Project completed</Text>
                 <Switch 
-                    value={isSoundEnabled}
-                    onValueChange={(value) => setSoundEnabled(value)}
+                    value={isProjectCompleted}
+                    onValueChange={(value) => setProjectCompleted(value)}
                 />
             </View>
 
             <View style={styles.settingRow}>
                 <Text>Project published</Text>
                 <Switch 
-                    value={isVibrationEnabled}
-                    onValueChange={(value) => setVibrationEnabled(value)}
+                    value={isProjectPublished}
+                    onValueChange={(value) => setProjectPublished(value)}
                 />
             </View>
         </View>
