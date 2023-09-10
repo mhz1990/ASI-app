@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Switch, StyleSheet } from 'react-native';
+import DailyReminder from './notifications/DailyReminder';
+import WeeklyReminder from './notifications/WeeklyReminder';
 
 const Notifications = () => {
     const [isNotificationsEnabled, setNotificationsEnabled] = useState(true);
@@ -21,6 +23,8 @@ const Notifications = () => {
 
             <View style={styles.settingRow}>
                 <Text>Daily reminder</Text>
+                <DailyReminder />
+                {/* <Text>Date/time selector here</Text> */}
                 <Text style={styles.itemText}></Text>
                 <Switch 
                     value={isDailyReminder}
@@ -30,6 +34,8 @@ const Notifications = () => {
 
             <View style={styles.settingRow}>
                 <Text>Weekly reminder</Text>
+                <WeeklyReminder />
+                {/* <Text>Date/time selector here</Text> */}
                 <Switch 
                     value={isWeeklyReminder}
                     onValueChange={(value) => setWeeklyReminder(value)}

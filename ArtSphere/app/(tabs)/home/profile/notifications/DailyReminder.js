@@ -1,8 +1,9 @@
 import React, {useState } from 'react'
 import { Button } from 'react-native'
-import DatePicker from 'react-native-date-picker'
+// import DatePicker from 'react-native-datepicker'
+import DatePicker from 'react-native-datepicker'
 
-export default () => {
+const DailyReminder = () => {
     const [date, setDate] = useState(new Date())
     const [open, setOpen] = useState(false)
 
@@ -24,3 +25,5 @@ export default () => {
         </>
     )
 }
+
+export default DailyReminder
