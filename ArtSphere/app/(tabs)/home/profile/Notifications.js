@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Switch, StyleSheet, TouchableOpacity } from 'react-native';
 import DailyReminder from './notifications/DailyReminder';
 import WeeklyReminder from './notifications/WeeklyReminder';
+import MyDatePicker from './notifications/MyDatePicker';
 
 const Notifications = () => {
     const [isNotificationsEnabled, setNotificationsEnabled] = useState(true);
@@ -29,7 +30,8 @@ const Notifications = () => {
                     />
                 </View>
                 <View style={styles.settingRowWithDateTime}>
-                    <DailyReminder />
+                    {/* <DailyReminder /> */}
+                    <MyDatePicker />
                     <Text style={styles.itemText}></Text>
                 </View>
             </View>
