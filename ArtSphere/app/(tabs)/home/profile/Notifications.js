@@ -70,7 +70,8 @@ const Notifications = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 20,
+        paddingRight: 40,
+        paddingLeft: 40,
     },
     itemText: {
         fontSize: 20,
