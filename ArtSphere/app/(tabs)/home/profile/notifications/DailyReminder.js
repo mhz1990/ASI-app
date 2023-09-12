@@ -1,6 +1,5 @@
 import React, {useState } from 'react'
 import { Button } from 'react-native'
-// import DatePicker from 'react-native-datepicker'
 import DatePicker from 'react-native-datepicker'
 
 const DailyReminder = () => {
@@ -9,7 +8,7 @@ const DailyReminder = () => {
 
     return (
         <>
-            <Button title="Open" onPress={() => setOpen(true)} />
+            <Button title="date" onPress={() => setOpen(true)} />
             <DatePicker
                 modal
                 open={open}

@@ -21,25 +21,32 @@ const Notifications = () => {
                 />
             </View>
 
-            <View style={styles.settingRow}>
-                <Text>Daily reminder</Text>
-                <DailyReminder />
-                {/* <Text>Date/time selector here</Text> */}
-                <Text style={styles.itemText}></Text>
-                <Switch 
-                    value={isDailyReminder}
-                    onValueChange={(value) => setDailyReminder(value)}
-                />
+            <View>
+                <View style={styles.settingRowWithComponents}>
+                    <Text>Daily reminder</Text>
+                    <Switch 
+                        value={isDailyReminder}
+                        onValueChange={(value) => setDailyReminder(value)}
+                    />
+                </View>
+                <View style={styles.settingRow}>
+                    <DailyReminder />
+                    <Text style={styles.itemText}></Text>
+                </View>
             </View>
 
-            <View style={styles.settingRow}>
-                <Text>Weekly reminder</Text>
-                <WeeklyReminder />
-                {/* <Text>Date/time selector here</Text> */}
-                <Switch 
-                    value={isWeeklyReminder}
-                    onValueChange={(value) => setWeeklyReminder(value)}
-                />
+            <View>
+                <View style={styles.settingRowWithComponents}>
+                    <Text>Weekly Reminder</Text>
+                    <Switch 
+                        value={isWeeklyReminder}
+                        onValueChange={(value) => setWeeklyReminder(value)}
+                    />
+                </View>
+                <View style={styles.settingRow}>
+                    <DailyReminder />
+                    <Text style={styles.itemText}></Text>
+                </View>
             </View>
 
             <View style={styles.settingRow}>
@@ -63,7 +70,7 @@ const Notifications = () => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        // flex: 1,
         padding: 20,
     },
     itemText: {
@@ -78,7 +85,25 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: '#ddd',
         paddingBottom: 10,
-    }
+    }, 
+    settingRowWithComponents: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 0,
+        borderBottomWidth: 1,
+        borderBottomColor: 'transparent',
+        paddingBottom: 0,
+    },
+    // settingRowWithDateTime: {
+    //     flexDirection: 'row',
+    //     justifyContent: 'space-between',
+    //     alignItems: 'center',
+    //     marginBottom: 15,
+    //     borderBottomWidth: 1,
+    //     borderBottomColor: '#ddd',
+    //     paddingBottom: 10,
+    // },
 });
 
 export default Notifications;
