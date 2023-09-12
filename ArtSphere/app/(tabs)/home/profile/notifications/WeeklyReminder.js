@@ -1,6 +1,5 @@
 import React, {useState } from 'react'
-import { Button } from 'react-native'
-// import DatePicker from 'react-native-datepicker'
+import { Button, TouchableOpacity } from 'react-native'
 import DatePicker from 'react-native-datepicker'
 
 const WeeklyReminder = () => {
@@ -9,19 +8,21 @@ const WeeklyReminder = () => {
 
     return (
         <>
-            <Button title="Open" onPress={() => setOpen(true)} />
-            <DatePicker
-                modal
-                open={open}
-                date={date}
-                onConfirm={(date) => {
-                    setOpen(false)
-                    setDate(date)
-                }}
-                onCancel={() => {
-                    setOpen(false)
-                }}
-            />
+            {/* <Button title="Open" onPress={() => setOpen(true)} /> */}
+            <TouchableOpacity onPress={() => setOpen(true)}>
+                <DatePicker
+                    modal
+                    open={open}
+                    date={date}
+                    onConfirm={(date) => {
+                        setOpen(false)
+                        setDate(date)
+                    }}
+                    onCancel={() => {
+                        setOpen(false)
+                    }}
+                />
+            </TouchableOpacity>
         </>
     )
 }

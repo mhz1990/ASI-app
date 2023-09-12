@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Switch, StyleSheet } from 'react-native';
+import { View, Text, Switch, StyleSheet, TouchableOpacity } from 'react-native';
 import DailyReminder from './notifications/DailyReminder';
 import WeeklyReminder from './notifications/WeeklyReminder';
 
@@ -13,8 +13,7 @@ const Notifications = () => {
     return (
         <View style={styles.container}>
             <View style={styles.settingRow}>
-                <Text>Turn off all</Text>
-                <Text style={styles.itemText}></Text>
+                <Text style={styles.itemText}>Turn off all</Text>
                 <Switch 
                     value={isNotificationsEnabled}
                     onValueChange={(value) => setNotificationsEnabled(value)}
@@ -23,13 +22,13 @@ const Notifications = () => {
 
             <View>
                 <View style={styles.settingRowWithComponents}>
-                    <Text>Daily reminder</Text>
+                    <Text style={styles.itemText}>Daily reminder</Text>
                     <Switch 
                         value={isDailyReminder}
                         onValueChange={(value) => setDailyReminder(value)}
                     />
                 </View>
-                <View style={styles.settingRow}>
+                <View style={styles.settingRowWithDateTime}>
                     <DailyReminder />
                     <Text style={styles.itemText}></Text>
                 </View>
@@ -37,20 +36,20 @@ const Notifications = () => {
 
             <View>
                 <View style={styles.settingRowWithComponents}>
-                    <Text>Weekly Reminder</Text>
+                    <Text style={styles.itemText}>Weekly Reminder</Text>
                     <Switch 
                         value={isWeeklyReminder}
                         onValueChange={(value) => setWeeklyReminder(value)}
                     />
                 </View>
-                <View style={styles.settingRow}>
-                    <DailyReminder />
+                <View style={styles.settingRowWithDateTime}>
+                    <WeeklyReminder />
                     <Text style={styles.itemText}></Text>
                 </View>
             </View>
 
             <View style={styles.settingRow}>
-                <Text>Project completed</Text>
+                <Text style={styles.itemText}>Project completed</Text>
                 <Switch 
                     value={isProjectCompleted}
                     onValueChange={(value) => setProjectCompleted(value)}
@@ -58,7 +57,7 @@ const Notifications = () => {
             </View>
 
             <View style={styles.settingRow}>
-                <Text>Project published</Text>
+                <Text style={styles.itemText}>Project published</Text>
                 <Switch 
                     value={isProjectPublished}
                     onValueChange={(value) => setProjectPublished(value)}
@@ -70,21 +69,22 @@ const Notifications = () => {
 
 const styles = StyleSheet.create({
     container: {
-        // flex: 1,
+        flex: 1,
         padding: 20,
     },
     itemText: {
-        fontSize: 19,
+        fontSize: 20,
         marginVertical: 10
     },
     settingRow: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: 15,
+        // marginBottom: 15,
         borderBottomWidth: 1,
         borderBottomColor: '#ddd',
-        paddingBottom: 10,
+        paddingBottom: 30,
+        paddingTop: 30,
     }, 
     settingRowWithComponents: {
         flexDirection: 'row',
@@ -94,16 +94,17 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: 'transparent',
         paddingBottom: 0,
+        paddingTop: 30,
     },
-    // settingRowWithDateTime: {
-    //     flexDirection: 'row',
-    //     justifyContent: 'space-between',
-    //     alignItems: 'center',
-    //     marginBottom: 15,
-    //     borderBottomWidth: 1,
-    //     borderBottomColor: '#ddd',
-    //     paddingBottom: 10,
-    // },
+    settingRowWithDateTime: {
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        marginBottom: 0,
+        borderBottomWidth: 1,
+        borderBottomColor: '#ddd',
+        paddingBottom: 30,
+    },
 });
 
 export default Notifications;
