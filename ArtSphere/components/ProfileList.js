@@ -24,6 +24,9 @@ export default function ProfileList({}){
       if (item.title === "Notifications"){
         console.log("Notifications selected!");
         router.push("/home/profile/Notifications");
+      } else if (item.title === "About ASI") {
+        console.log("About ASI selected!");
+        router.push("/home/profile/About");
       }
     }
 
