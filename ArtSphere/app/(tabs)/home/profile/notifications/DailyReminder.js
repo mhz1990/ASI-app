@@ -1,6 +1,6 @@
 import React, {useState } from 'react'
-import { Button, TouchableOpacity } from 'react-native'
-import DatePicker from 'react-native-datepicker'
+import { TouchableOpacity } from 'react-native'
+import DateTimePicker from '@react-native-community/datetimepicker'
 
 const DailyReminder = () => {
     const [date, setDate] = useState(new Date())
@@ -9,7 +9,8 @@ const DailyReminder = () => {
     return (
         <>
             <TouchableOpacity onPress={() => setOpen(true)}>
-                <DatePicker
+                <DateTimePicker
+                    mode="time"
                     modal
                     open={open}
                     date={date}

@@ -37,7 +37,7 @@ const Notifications = () => {
                     />
                 </View>
                 <TextInput
-                    placeholder="7:00 AM"
+                    placeholder='7:00 AM'
                 />
                 <View style={styles.settingRowWithDateTime}>
                     <DailyReminder />
@@ -54,7 +54,7 @@ const Notifications = () => {
                     />
                 </View>
                 <TextInput
-                    placeholder="2000-01-01"
+                    placeholder='1-1-2020 at 7:00 AM'
                 />
                 <View style={styles.settingRowWithDateTime}>
                     <WeeklyReminder />
@@ -69,7 +69,6 @@ const Notifications = () => {
                     onValueChange={(value) => setProjectCompleted(value)}
                 />
             </View>
-
             <View style={styles.settingRow}>
                 <Text style={styles.itemText}>Project published</Text>
                 <Switch 
