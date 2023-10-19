@@ -8,7 +8,6 @@ const DailyReminder = () => {
 
     return (
         <>
-            {/* <Button title="date" onPress={() => setOpen(true)} /> */}
             <TouchableOpacity onPress={() => setOpen(true)}>
                 <DatePicker
                     modal

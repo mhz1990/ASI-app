@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Switch, StyleSheet, TouchableOpacity } from 'react-native';
 import DailyReminder from './notifications/DailyReminder';
 import WeeklyReminder from './notifications/WeeklyReminder';
-// import TestDatePicker from './notifications/TestDatePicker';
+import { TextInput } from 'react-native-gesture-handler';
 
 const Notifications = () => {
     const [isNotificationsEnabled, setNotificationsEnabled] = useState(true);
@@ -11,13 +11,20 @@ const Notifications = () => {
     const [isProjectCompleted, setProjectCompleted] = useState(true);
     const [isProjectPublished, setProjectPublished] = useState(true);
 
+
     return (
         <View style={styles.container}>
             <View style={styles.settingRow}>
                 <Text style={styles.itemText}>Turn off all</Text>
                 <Switch 
                     value={isNotificationsEnabled}
-                    onValueChange={(value) => setNotificationsEnabled(value)}
+                    onValueChange={(value) => {
+                        setNotificationsEnabled(value), 
+                        setDailyReminder(value),
+                        setWeeklyReminder(value),
+                        setProjectCompleted(value),
+                        setProjectPublished(value)
+                    }}
                 />
             </View>
 
@@ -29,9 +36,11 @@ const Notifications = () => {
                         onValueChange={(value) => setDailyReminder(value)}
                     />
                 </View>
+                <TextInput
+                    placeholder="7:00 AM"
+                />
                 <View style={styles.settingRowWithDateTime}>
                     <DailyReminder />
-                    {/* <MyDatePicker /> */}
                     <Text style={styles.itemText}></Text>
                 </View>
             </View>
@@ -44,6 +53,9 @@ const Notifications = () => {
                         onValueChange={(value) => setWeeklyReminder(value)}
                     />
                 </View>
+                <TextInput
+                    placeholder="2000-01-01"
+                />
                 <View style={styles.settingRowWithDateTime}>
                     <WeeklyReminder />
                     <Text style={styles.itemText}></Text>
