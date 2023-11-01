@@ -5,7 +5,7 @@ const About = () => {
 
 
     return (
-        <View style={styles.container}>
+        <View>
             <View style={styles.settingRow}>
                 <Text style={styles.itemText}>Art Sphere Inc</Text>
             </View>
@@ -48,8 +48,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderBottomWidth: 1,
-        borderBottomColor: '#ddd',
         paddingBottom: 30,
         paddingTop: 30,
     }, 
@@ -58,8 +56,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         marginBottom: 0,
-        borderBottomWidth: 1,
-        borderBottomColor: 'transparent',
         paddingBottom: 0,
         paddingTop: 30,
     },
@@ -68,8 +64,6 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'center',
         marginBottom: 0,
-        borderBottomWidth: 1,
-        borderBottomColor: '#ddd',
         paddingBottom: 30,
     },
 });
